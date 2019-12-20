@@ -57,7 +57,6 @@ def build_card(user):
             square.goto(-x, -y + 280)
             square.stamp()
 
-
     text = turtle.Turtle()
     text.penup()
     style = ('Courier', 30)
@@ -70,6 +69,4 @@ def build_card(user):
     else:
         text.write('Happy Holidays!', font=style, align='center')
     text.hideturtle()
-
-
     turtle.exitonclick()
