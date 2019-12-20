@@ -1,7 +1,7 @@
 import turtle
 
 
-def build_card():
+def build_card(user):
     screen = turtle.Screen()
     screen.setup(900, 900)
 
@@ -65,7 +65,10 @@ def build_card():
     text.setpos(0, 350)
     text.color('black')
     text.pendown()
-    text.write('Happy Holidays!', font=style, align='center')
+    if user:
+        text.write('Happy Holidays! ' + user, font=style, align='center')
+    else:
+        text.write('Happy Holidays!', font=style, align='center')
     text.hideturtle()
 
 
