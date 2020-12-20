@@ -3,4 +3,4 @@ import os
 
 if __name__ == "__main__":
     user = str(os.getlogin()).replace('.', ' ').capitalize()
-    cg.build_card(user)
+    cg.Card().build_cover(user)
