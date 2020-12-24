@@ -14,7 +14,7 @@ class Card:
         self.position = 0
         self.font_style = ('Courier', 30, "normal")
 
-    def _bauble_initialise(self):
+    def __bauble_initialise(self):
         # as the bauble is the start of the tree, we can start stamping there
         self.circle.shape('circle')
         self.circle.color('red')
@@ -23,7 +23,7 @@ class Card:
         self.circle.goto(0, 280)
         self.circle.stamp()
 
-    def _foliage_initialise(self):
+    def __foliage_initialise(self):
         self.square.shape('square')
         self.square.color('green')
         self.square.speed('fastest')
@@ -38,9 +38,9 @@ class Card:
         self.circle.goto(x_axis, -y_axis + 280)
         self.circle.stamp()
 
-    def build_tree(self):
-        self._bauble_initialise()
-        self._foliage_initialise()
+    def __build_tree(self):
+        self.__bauble_initialise()
+        self.__foliage_initialise()
 
         for row in range(1, 17):  # 16 rows to account for the tree
             y = 30 * row  # Y axis turtle position
@@ -59,7 +59,8 @@ class Card:
                 self.bauble('red', each, y)
                 self.position += 2  # this is so the tree comes back in on itself after the red bauble
 
-    def build_stump(self):
+    def __build_stump(self):
+        self.__foliage_initialise()
         self.square.color('brown')
         # stump
         for row in range(17, 20):
@@ -72,8 +73,8 @@ class Card:
                 self.square.stamp()
 
     def build_cover(self, user):
-        self.build_tree()
-        self.build_stump()
+        self.__build_tree()
+        self.__build_stump()
         self.turtle_text.penup()  # want to pen up so we don't draw a line moving the turtle to text block
 
         # configs
